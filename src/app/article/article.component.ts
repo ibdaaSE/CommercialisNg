@@ -8,7 +8,7 @@ import { JQueryService } from "app/services/JQuery.service";
 })
 
 export class ArticleComponent{
-
+    
     @Input() article:any
     constructor() { }
 
