@@ -1,0 +1,58 @@
+<div class="row valign-wrapper filters">
+	<a materialize="sideNav" data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
+		<i class="material-icons">apps</i></a>
+	<h4 class="col s12 m3">Stock</h4>
+	<div id="filers-tab" class="col hide-on-small-only m6 center-align">
+		<ul class="tabs" materialize="tabs">
+			<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles">Tous</a></li>
+			<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés">Utilisé</a></li>
+			<li class="tab"><a (click)="setAdvancedFilter('=a.inventaire', '1')" class="black-text tooltipped" data-tooltip="Les articles en inventaire">Inventaire</a></li>
+			<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock">En rupture</a></li>
+			<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés">Inutilisé</a></li>
+		</ul>
+	</div>
+	<div class="search-field input-field col hide-on-small-only m3 valign-wrapper">
+		<i class="material-icons prefix">search</i>
+		<input #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher" type="text" class="validate">
+	</div>
+</div>
+<div class="hide-on-med-and-up container search-field input-field col s12 valign-wrapper">
+	<input #mSearchField (keyup.enter)="setFilter(mSearchField.value)" id="icon_prefix" placeholder="Rechercher" type="text" class="validate">
+</div>
+<div class="row hide-on-small-only valign-wrapper left-align table-header">
+	<div class="edge-20">
+		<p class="col m3 left-align"><b>REFERENCE</b></p>
+		<p class="col m7 left-align"><b>DESIGNATION</b></p>
+		<p class="col m1 right-align"><b>QTE</b></p>
+		<p class="col m1 right-align"><b>PRIX</b></p>
+	</div>
+</div>
+
+<div class="divider grey lighten-1"></div>
+
+<div id="table-body" class="grey lighten-5">
+	<table class="bordered">
+		<tbody *ngFor="let article of articles">
+			<tr>
+				<td>
+					<article (click)="setSelectedArticle(article)" [article]="article"></article>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<article-details [article] = "selectedArticle"></article-details>
+
+<div class="divider grey lighten-1"></div>
+
+<div class="row valign-wrapper table-footer">
+	<div class="col m12 row valign-wrapper table-footer">
+		<p class="left"><b>{{articlesCount}}</b> Articles</p>
+	</div>
+	<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" 
+	class="waves-effect waves-orange amber btn z-depth-0">Précédent</a>
+	<a [class.disabled]="!hasNextPage()" (click)="getNextPage()"
+	class="waves-effect waves-orange amber btn z-depth-0">Suivant</a>
+	
+</div>

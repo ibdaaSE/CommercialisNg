@@ -1,0 +1,33 @@
+<ul id="slide-out" class="side-nav grey darken-4">
+	<li><a class="white-text"><i class="material-icons white-text">account_circle</i>Administrateur</a></li>
+	<li>
+		<div class="divider grey darken-2"></div>
+	</li>
+	<li><a class="white-text"><i class="material-icons white-text">home</i>Accueil</a></li>
+	<li><a class="white-text"><i class="material-icons white-text">dashboard</i>Tableau de bord</a></li>
+	<li><a class="white-text"><i class="material-icons white-text">store</i>Vente</a></li>
+	<li><a class="white-text"><i class="material-icons white-text">shopping_cart
+</i>Achat</a></li>
+	<li class=""><a [routerLink]="['stock']" routerLinkActive="blue" class="white-text">
+		<i class="material-icons white-text">unarchive</i>Stock</a></li>
+	<li><a [routerLink]="['clientFournisseur']" routerLinkActive="blue"  class="white-text">
+		<i class="material-icons white-text">person_pin</i>Clients et fournisseurs</a></li>
+	<li><a class="white-text"><i class="material-icons white-text">poll</i>Statistiques</a></li>
+</ul>
+
+<!--<nav id="main-toolbar" class="grey darken-3 z-depth-0">
+	<div class="nav-wrapper">
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li><a>Accueil</a></li>
+			<li><a>Tableau de bord</a></li>
+			<li><a>Vente</a></li>
+			<li><a>Achat</a></li>
+			<li><a [routerLink]="['stock']" routerLinkActive="blue">Stock</a></li>
+			<li><a [routerLink]="['clientFournisseur']" routerLinkActive="blue">Clients et fournisseurs</a></li>
+			<li><a>Statistiques</a></li>
+		</ul>
+	</div>
+</nav>-->
+<div id="app-module">
+	<router-outlet></router-outlet>
+</div>

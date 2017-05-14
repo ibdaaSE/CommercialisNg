@@ -1,0 +1,9 @@
+.row {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	cursor: pointer;
+}
+
+.row:hover {
+   background-color: white;
+}

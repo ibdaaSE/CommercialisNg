@@ -1,0 +1,28 @@
+#table-body {
+	overflow-y: scroll;
+	height: calc(100% - 171px);
+}
+
+.edge-20 {
+	width: calc(100% - 18px);
+}
+
+td{
+	padding: 0px 0px 0px 0px;
+}
+
+.row {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.search-field {
+	min-height: 40px !important;
+	height: 40px;
+}
+
+.filters {
+	min-height: 40px !important;
+	height: 40px;
+	line-height: 40px
+}

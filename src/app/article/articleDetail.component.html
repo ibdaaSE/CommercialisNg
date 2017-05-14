@@ -1,0 +1,64 @@
+<div id="article-details-dialog" class="modal modal-fixed-footer" materialize="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12 m12">
+                <h5 class="left-align blue-text"><i class="material-icons">info_outline</i> Informations générale</h5>
+                <div class="divider"></div>
+            </div>
+            <div class="col s12 m6">
+                <p class="left-align"><b>Référence</b><br>{{article?.reference}}</p>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Marque</b><br>{{article?.marque}}</p>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Catégorie</b><br>{{article?.categorie}}</p>
+            </div>
+            <div class="col s12 m6">
+                <p class="left-align"><b>Designation</b><br>{{article?.designation}}</p>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Famille</b><br>{{article?.famille}}</p>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Nom technique</b><br>{{article?.nomtech}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <h5 class="left-align blue-text"><i class="material-icons">archive</i> Stockage</h5>
+                <div class="divider"></div>
+            </div>
+            <div class="col s6 m4">
+                <p class="left-align"><b>Qte stockée</b> <br> {{article?.qtestock | number : '1.2-2'}}</p>
+            </div>
+            <div class="col s6 m4">
+                <p class="left-align"><b>Qte minimale</b> <br> {{article?.qtemin | number : '1.2-2'}}</p>
+            </div>
+            <div class="col s6 m4">
+                <p class="left-align"><b>Qte maximale</b> <br> {{article?.qtemax | number : '1.2-2'}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12">
+                <h5 class="left-align blue-text"><i class="material-icons">attach_money</i> Prix</h5>
+                <div class="divider"></div>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Prix d'achat</b> <br> {{article?.prixachat | number : '1.2-2'}}</p>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Prix publique</b> <br> {{article?.prixpublic | number : '1.2-2'}}</p>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Prix revendeur</b> <br> {{article?.prixrevendeur | number : '1.2-2'}}</p>
+            </div>
+            <div class="col s6 m3">
+                <p class="left-align"><b>Prix spécial</b> <br> {{article?.prixspecial | number : '1.2-2'}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a (click)="dispose()" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Fermer</a>
+    </div>
+</div>
