@@ -5,5 +5,5 @@ import { ClientFournisseurComponent } from "app/clientFournisseur/cf.component";
 export const appRoutes:Routes = [
     {path : 'stock', component: StockComponent},
     {path: 'clientFournisseur', component: ClientFournisseurComponent},
-    {path: '', redirectTo: 'stock', pathMatch:'full'}
+    {path: '', redirectTo: '/stock', pathMatch:'full'}
 ]
