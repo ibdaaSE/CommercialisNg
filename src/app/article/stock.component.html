@@ -1,8 +1,10 @@
 <div class="row valign-wrapper filters">
 	<a materialize="sideNav" data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
 		<i class="material-icons">apps</i></a>
-	<h4 class="col s12 m3">Stock</h4>
-	<div id="filers-tab" class="col hide-on-small-only m6 center-align">
+	<div class="col s12 m6 left-align">
+		<h5 class="left-align m12">Gestion du stock</h5>
+	</div>
+	<!--<div id="filers-tab" class="col hide-on-small-only m6 center-align">
 		<ul class="tabs" materialize="tabs">
 			<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles">Tous</a></li>
 			<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés">Utilisé</a></li>
@@ -10,16 +12,21 @@
 			<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock">En rupture</a></li>
 			<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés">Inutilisé</a></li>
 		</ul>
+	</div>-->
+	<div class="col hide-on-small-only m5 valign-wrapper">
+		<div class="search-field input-field col m12 valign-wrapper">
+			<input #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher" type="text">
+		</div>
+		<button class="waves-effect waves-light btn z-depth-0"><i class="material-icons prefix">search</i></button>
 	</div>
-	<div class="search-field input-field col hide-on-small-only m3 valign-wrapper">
-		<i class="material-icons prefix">search</i>
-		<input #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher" type="text" class="validate">
+	<div class="col hide-on-small-only m1 valign-wrapper">
 	</div>
 </div>
 <div class="hide-on-med-and-up container search-field input-field col s12 valign-wrapper">
-	<input #mSearchField (keyup.enter)="setFilter(mSearchField.value)" id="icon_prefix" placeholder="Rechercher" type="text" class="validate">
+	<input #mSearchField (keyup.enter)="setFilter(mSearchField.value)" id="icon_prefix" placeholder="Rechercher" type="text"
+	 class="validate">
 </div>
-<a class="waves-effect waves-light btn">button</a>
+<a class="waves-effect btn">button</a>
 <div class="row hide-on-small-only valign-wrapper left-align table-header">
 	<div class="edge-20">
 		<p class="col m3 left-align"><b>REFERENCE</b></p>
@@ -43,7 +50,7 @@
 	</table>
 </div>
 
-<article-details [article] = "selectedArticle"></article-details>
+<article-details [article]="selectedArticle"></article-details>
 
 <div class="divider grey lighten-1"></div>
 
@@ -51,10 +58,8 @@
 	<div class="col m12 row valign-wrapper table-footer">
 		<p class="left"><b>{{articlesCount}}</b> Articles</p>
 	</div>
-	<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" 
-	class="waves-effect waves-orange amber btn z-depth-0">Précédent</a>
-	<a [class.disabled]="!hasNextPage()" (click)="getNextPage()"
-	class="waves-effect waves-orange amber btn z-depth-0">Suivant</a>
-	
+	<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="waves-effect waves-orange amber btn z-depth-0">Précédent</a>
+	<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="waves-effect waves-orange amber btn z-depth-0">Suivant</a>
+
 </div>
 <div>

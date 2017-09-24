@@ -35,6 +35,7 @@ td{
 	min-height: 40px !important;
 	max-height: 40px !important;
 	height: 40px;
+	padding-right: 0px;
 }
 
 .filters {
