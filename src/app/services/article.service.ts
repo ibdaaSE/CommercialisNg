@@ -11,10 +11,10 @@ export class ArticleService {
     }
 
     getArticles(filter:String, pageIndex:number, filterAttribute:string, advancedFilter:string):Observable<any[]> {
-        console.log('/api/articles?filter=' + filter  + '&pageIndex=' + pageIndex
+        console.log('/api/filteredArticles?filter=' + filter  + '&pageIndex=' + pageIndex
         + '&filterAttribute=' + filterAttribute + '&advancedFilter=' + advancedFilter);
         
-        return this.http.get('/api/articles?filter=' + filter  + '&pageIndex=' + pageIndex
+        return this.http.get('/api/filteredArticles?filter=' + filter  + '&pageIndex=' + pageIndex
         + '&filterAttribute=' + filterAttribute + '&advancedFilter=' + advancedFilter)
         .map((response: Response) =>  response.json());
     }
@@ -23,6 +23,11 @@ export class ArticleService {
         return this.http.get('/api/articles/count?filter=' + filter 
         + '&filterAttribute=' + filterAttribute + '&advancedFilter=' + advancedFilter)
         .map((response: Response) =>  response.json());
+    }
+
+    deleteArticle(id:number){
+        console.log('/api/articles/'+id)
+        return this.http.delete('/api/articles/'+id).map((response: Response) =>  response.json());;
     }
 
 }
