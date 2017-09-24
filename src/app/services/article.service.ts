@@ -25,9 +25,9 @@ export class ArticleService {
         .map((response: Response) =>  response.json());
     }
 
-    deleteArticle(id:number){
-        console.log('/api/articles/'+id)
-        return this.http.delete('/api/articles/'+id).map((response: Response) =>  response.json());;
+    deleteArticle(id:number) : Observable<any> {
+        console.log('/api/articles/'+id);
+        return this.http.delete('/api/articles/'+id);
     }
 
 }
