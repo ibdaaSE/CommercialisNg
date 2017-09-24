@@ -36,7 +36,7 @@
 		<tbody *ngFor="let article of articles">
 			<tr>
 				<td>
-					<article [article]="article"></article>
+					<article [article]="article" (deleteEvent)="getArticles()"></article>
 				</td>
 			</tr>
 		</tbody>
