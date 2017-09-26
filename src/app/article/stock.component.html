@@ -37,7 +37,7 @@
 		</button>
 	</div>
 	<div class="col table-content">
-		<div class="row hide-on-small-only m12 grey lighten-5">
+		<div class="row valign-wrapper hide-on-small-only m12 grey lighten-5">
 			<ul class="col tabs advanced-filers-tab grey lighten-5" materialize="tabs">
 				<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles">Tous</a></li>
 				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés">Utilisé</a></li>
@@ -73,20 +73,12 @@
 				<tbody *ngFor="let article of articles">
 					<tr>
 						<td>
-							<article [article]="article" (deleteEvent)="getArticles()"></article>
+							<article [article]="article" (deleteEvent)="deletedArticles($event)"></article>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-</div>
-
-
-<div class="divider grey lighten-1"></div>
-
-<div class="row valign-wrapper table-footer">
-
-
 </div>
 <div>

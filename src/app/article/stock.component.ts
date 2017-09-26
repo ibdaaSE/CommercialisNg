@@ -89,4 +89,9 @@ export class StockComponent implements OnInit {
     if (this.selectedArticle === null) return;
     this.jQueryService.openModal("article-details-dialog")
   }
+
+  deletedArticles(message:String){
+    this.getArticles();
+    console.log(message);
+  }
 }

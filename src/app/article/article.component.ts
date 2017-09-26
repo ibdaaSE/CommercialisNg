@@ -9,19 +9,26 @@ import { Observable } from 'rxjs/Observable';
     styleUrls: ['./article.component.css']
 })
 
-export class ArticleComponent{
-    
-    @Output() deleteEvent = new EventEmitter();
-    @Input() article:any;
-    constructor(private articleService : ArticleService ) { }
+export class ArticleComponent {
 
-    deleteArticle(){
-        this.articleService.deleteArticle(this.article.idArticle).catch(this.handleError).subscribe();
-        this.deleteEvent.emit();
+    @Output() deleteEvent = new EventEmitter();
+    @Input() article: any;
+    constructor(private articleService: ArticleService) { }
+
+    deleteArticle() {
+        this.articleService.deleteArticle(this.article.idArticle).catch(this.handleError).
+            subscribe((val) => {
+            },
+            (err) => {
+                this.deleteEvent.emit("failed");
+            },
+            () => {
+                this.deleteEvent.emit("success");
+            });
+
     }
-    
-    private handleError(error : Response){
-        console.log(error.status);
+
+    private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }
 
