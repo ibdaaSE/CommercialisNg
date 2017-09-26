@@ -88,11 +88,6 @@ td{
 	line-height: 40px !important;
 }
 
-.table-header p{
-	margin-bottom: 0px;
-	margin-top: 0px;
-}
-
 .table-footer {
 	min-height: 60px !important;
 	max-height: 60px !important;
