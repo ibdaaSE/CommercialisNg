@@ -4,15 +4,6 @@
 	<div class="col s12 m4 left-align">
 		<h5 class="left-align m12">Stock</h5>
 	</div>
-	<!--<div id="filers-tab" class="col hide-on-small-only m6 center-align">
-		<ul class="tabs" materialize="tabs">
-			<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles">Tous</a></li>
-			<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés">Utilisé</a></li>
-			<li class="tab"><a (click)="setAdvancedFilter('=a.inventaire', '1')" class="black-text tooltipped" data-tooltip="Les articles en inventaire">Inventaire</a></li>
-			<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock">En rupture</a></li>
-			<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés">Inutilisé</a></li>
-		</ul>
-	</div>-->
 	<div class="col hide-on-small-only m8 valign-wrapper search-field-container">
 		<div class="search-field col m12">
 			<input class="col m12 browser-default" #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher"
@@ -33,6 +24,9 @@
 	<input #mSearchField (keyup.enter)="setFilter(mSearchField.value)" id="icon_prefix" placeholder="Rechercher" type="text"
 	 class="validate">
 </div>
+
+<div class="divider grey lighten-2"></div>
+
 <div class="row grey lighten-5">
 	<div class="col left-menu center grey lighten-4">
 		<button class="btn-floating waves-effect waves-light green tooltipped" data-position="right" data-tooltip="Nouvel article">
@@ -43,6 +37,22 @@
 		</button>
 	</div>
 	<div class="col table-content">
+		<div class="row hide-on-small-only m12 grey lighten-5">
+			<ul class="col tabs advanced-filers-tab grey lighten-5" materialize="tabs">
+				<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles">Tous</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés">Utilisé</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('=a.inventaire', '1')" class="black-text tooltipped" data-tooltip="Les articles en inventaire">Inventaire</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock">En rupture</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés">Inutilisé</a></li>
+			</ul>
+			<div class="col page-content">
+				<div class="col">
+					<p class=""><b>{{articlesCount}}</b> Articles</p>
+				</div>
+				<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="col waves-effect waves-orange amber btn z-depth-0">Précédent</a>
+				<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="col waves-effect waves-orange amber btn z-depth-0">Suivant</a>
+			</div>
+		</div>
 		<div class="row hide-on-small-only valign-wrapper left-align table-header">
 			<div class="edge-20">
 				<p class="col m3 left-align"><b>REFERENCE</b></p>
@@ -73,11 +83,7 @@
 <div class="divider grey lighten-1"></div>
 
 <div class="row valign-wrapper table-footer">
-	<div class="col m12 row valign-wrapper table-footer">
-		<p class="left"><b>{{articlesCount}}</b> Articles</p>
-	</div>
-	<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="waves-effect waves-orange amber btn z-depth-0">Précédent</a>
-	<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="waves-effect waves-orange amber btn z-depth-0">Suivant</a>
+
 
 </div>
 <div>
