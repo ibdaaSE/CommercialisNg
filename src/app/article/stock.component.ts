@@ -20,8 +20,6 @@ export class StockComponent implements OnInit {
   articles: any[]
   selectedArticle: any
 
-  private subscriptions: Array<Subscription> = [];
-
   constructor(private articleService: ArticleService, private jQueryService: JQueryService) {
   }
 
@@ -37,12 +35,11 @@ export class StockComponent implements OnInit {
   }
 
   getArticles() {
-    this.unsubscribe();
     let observable = this.articleService.getArticles(this.filter, this.pageIndex,
       this.filterAttribute, this.advancedFilter);
-    this.subscriptions.push(observable.subscribe(articles => {
+    observable.subscribe(articles => {
       this.articles = articles;
-    }));
+    });
   }
 
   setFilter(filter: string) {
@@ -82,16 +79,9 @@ export class StockComponent implements OnInit {
 
   updateArticlesCount() {
     let observable = this.articleService.countArticles(this.filter, this.filterAttribute, this.advancedFilter);
-    this.subscriptions.push(observable.subscribe(count => {
+    observable.subscribe(count => {
       this.articlesCount = +count;
-    }));
-  }
-
-  public unsubscribe(): void {
-    this.subscriptions.forEach((subscription: Subscription) => {
-      subscription.unsubscribe();
     });
-    this.subscriptions = [];
   }
 
   setSelectedArticle(selectedArticle: any) {
