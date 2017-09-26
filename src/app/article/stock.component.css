@@ -14,8 +14,9 @@
 }
 }
 
-#filters-tab {
+.advanced-filers-tab {
 	overflow-x: hidden !important;
+	padding-right: 20px;
 }
 
 .edge-20 {
@@ -87,15 +88,11 @@ td{
 }
 
 .table-header {
+	margin-top: 20px;
 	min-height: 40px !important;
 	max-height: 40px !important;
 	height: 40px !important;
 	line-height: 40px !important;
-}
-
-.table-header p{
-	margin-bottom: 0px;
-	margin-top: 0px;
 }
 
 .table-footer {
@@ -139,8 +136,13 @@ td{
 }
 
 .table-content{
-	margin-top: 20px;
+	margin-top: 0px;
 	padding-left: 10px;
 	padding-right: 0px;
 	width: calc(100% - 100px);
+}
+
+.page-content{
+	min-width: 200px;
+	max-width: 200px;
 }
