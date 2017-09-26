@@ -4,6 +4,8 @@ import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import { JQueryService } from "app/services/JQuery.service";
 
+declare let Materialize:any;
+
 @Component({
   templateUrl: './stock.component.html',
   styleUrls: ['./stock.component.css']
@@ -91,6 +93,7 @@ export class StockComponent implements OnInit {
   }
 
   deletedArticles(message:String){
+    Materialize.toast('I am a toast!', 4000)
     this.getArticles();
     console.log(message);
   }
