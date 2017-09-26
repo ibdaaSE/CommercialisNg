@@ -45,12 +45,16 @@
 				<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock">En rupture</a></li>
 				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés">Inutilisé</a></li>
 			</ul>
-			<div class="col page-content">
+			<div class="row pagination-content valign-wrapper">
 				<div class="col">
 					<p class=""><b>{{articlesCount}}</b> Articles</p>
 				</div>
-				<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="col waves-effect waves-orange amber btn z-depth-0">Précédent</a>
-				<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="col waves-effect waves-orange amber btn z-depth-0">Suivant</a>
+				<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="col waves-effect waves-orange amber btn z-depth-0">
+				<i class="material-icons grey-text white-text">chevron_left</i>
+			    </a>
+				<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="col waves-effect waves-orange amber btn z-depth-0">
+				<i class="material-icons grey-text white-text">chevron_right</i>
+				</a>
 			</div>
 		</div>
 		<div class="row hide-on-small-only valign-wrapper left-align table-header">

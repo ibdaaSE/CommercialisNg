@@ -16,7 +16,6 @@
 
 .advanced-filers-tab {
 	overflow-x: hidden !important;
-	padding-right: 20px;
 }
 
 .edge-20 {
@@ -135,7 +134,7 @@ td{
 	width: calc(100% - 100px);
 }
 
-.page-content{
+.pagination-container{
 	min-width: 200px;
 	max-width: 200px;
 }
