@@ -48,12 +48,6 @@ td{
 }
 
 .search-field {
-<<<<<<< HEAD
-	min-height: 40px !important;
-	max-height: 40px !important;
-	height: 40px;
-	padding-right: 0px;
-=======
 	min-height: 32px !important;
 	max-height: 32px !important;
 	height: 32px;
@@ -68,7 +62,6 @@ td{
 	height: 32px;
 	margin-bottom: 0px !important;
 	border: 0px;
->>>>>>> 21e9dc2b78e89560c737b6034403ba8891659e31
 }
 
 .filters {
