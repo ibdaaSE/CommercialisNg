@@ -14,4 +14,8 @@ export class JQueryService {
     disposeModal(id:string){
         jQuery('#' + id).modal('close')
     }
+
+    openDropdown(id:string){
+        jQuery('#' + id).modal('dropdown')
+    }
 }

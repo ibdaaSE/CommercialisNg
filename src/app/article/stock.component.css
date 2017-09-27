@@ -14,7 +14,13 @@
 }
 }
 
-.advanced-filers-tab {
+.advanced-filters-container{
+	min-height: 50px !important;
+	max-height: 50px !important;
+	line-height: 50px !important;
+}
+
+.advanced-filters-tab {
 	overflow-x: hidden !important;
 }
 
@@ -129,12 +135,13 @@ td{
 
 .table-content{
 	margin-top: 0px;
-	padding-left: 10px;
+	padding-left: 0px;
 	padding-right: 0px;
 	width: calc(100% - 100px);
 }
 
 .pagination-container{
-	min-width: 200px;
-	max-width: 200px;
+	min-width: 210px;
+	max-width: 210px;
+	margin-right: 10px;
 }
