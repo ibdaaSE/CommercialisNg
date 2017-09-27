@@ -1,9 +1,19 @@
-<div class="row hide-on-small-only modal-trigger">
-    <p class="col m3 left-align">{{article.reference}}</p>
-    <p class="col m6 left-align">{{article.designation}}</p>
-    <p class="col m1 right-align">{{article.qtestock | number : '1.2-2'}}</p>
-    <p class="col m1 right-align">{{article.prixpublic |number : '1.2-2'}}</p>
-    <button class="waves-effect waves-light btn" (click)="deleteArticle()">de</button>
+<div>
+    <div class="row-container row hide-on-small-only modal-trigger">
+        <p class="col m3 left-align">{{article.reference}}</p>
+        <p class="col m6 left-align">{{article.designation}}</p>
+        <p class="col m1 right-align">{{article.qtestock | number : '1.2-2'}}</p>
+        <p class="col m1 right-align">{{article.prixpublic |number : '1.2-2'}}</p>
+    </div>
+    <div class="row-options hide-on-small-only modal-trigger">
+        <button class='dropdown-button btn' data-activates='dropdown1' materialize="dropdown">Drop Me!</button>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li>
+                <button class="waves-effect waves-light btn" (click)="deleteArticle()">Supprimer
+                </button>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div class="row hide-on-med-and-up">

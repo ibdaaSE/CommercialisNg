@@ -12,10 +12,10 @@
 		<button class="waves-effect waves-light btn z-depth-0"><i class="material-icons prefix">search</i></button>
 	</div>
 	<div class="right row hide-on-small-only user-container">
-		<button class="right btn-floating waves-effect waves-light blue center">
+		<button class="right btn-floating waves-effect waves-light blue">
 					<i class="material-icons">account_circle</i>
 		</button>
-		<button class="right btn-floating waves-effect waves-dark center z-depth-0 white">
+		<button class="right btn-floating waves-effect waves-dark z-depth-0 white">
 			<i class="material-icons grey-text">settings</i>
 		</button>
 	</div>
@@ -37,17 +37,20 @@
 		</button>
 	</div>
 	<div class="col table-content">
-		<div class="row valign-wrapper hide-on-small-only m12 grey lighten-5">
-			<ul class="col tabs advanced-filers-tab grey lighten-5" materialize="tabs">
+		<div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
+			<ul class="col tabs advanced-filters-tab" materialize="tabs">
 				<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles">Tous</a></li>
 				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés">Utilisé</a></li>
 				<li class="tab"><a (click)="setAdvancedFilter('=a.inventaire', '1')" class="black-text tooltipped" data-tooltip="Les articles en inventaire">Inventaire</a></li>
 				<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock">En rupture</a></li>
 				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés">Inutilisé</a></li>
 			</ul>
-			<div class="row pagination-container valign-wrapper">
-				<div class="col">
-					<p class=""><b>{{articlesCount}}</b> Articles</p>
+			<div class="row pagination-container valign-wrapper right">
+				<div class="row right-align">
+					<p class="right" *ngIf="articlesCount >= pageLength"><b>{{pageIndex +1}}-{{pageIndex + pageLength}}</b> sur <b>{{articlesCount}}</b></p>
+					<p class="right" *ngIf="articlesCount != 0 && articlesCount < pageLength">
+						<b>{{pageIndex +1}}-{{pageIndex + articlesCount}}</b> sur <b>{{articlesCount}}</b>
+					</p>
 				</div>
 				<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="col waves-effect waves-orange amber btn z-depth-0">
 				<i class="material-icons grey-text white-text">chevron_left</i>
@@ -57,6 +60,7 @@
 				</a>
 			</div>
 		</div>
+		<div class="divider grey lighten-2"></div>
 		<div class="row hide-on-small-only valign-wrapper left-align table-header">
 			<div class="edge-20">
 				<p class="col m3 left-align"><b>REFERENCE</b></p>

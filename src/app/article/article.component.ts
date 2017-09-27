@@ -13,7 +13,7 @@ export class ArticleComponent {
 
     @Output() deleteEvent = new EventEmitter();
     @Input() article: any;
-    constructor(private articleService: ArticleService) { }
+    constructor(private articleService: ArticleService, private jQuery:JQueryService) { }
 
     deleteArticle() {
         this.articleService.deleteArticle(this.article.idArticle).catch(this.handleError).
@@ -31,5 +31,9 @@ export class ArticleComponent {
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }
+
+    openDropdown(id:string){
+        this.jQuery.openDropdown(id);
+    } 
 
 }
