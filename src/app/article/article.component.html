@@ -6,11 +6,10 @@
         <p class="col m1 right-align">{{article.prixpublic |number : '1.2-2'}}</p>
     </div>
     <div class="row-options hide-on-small-only modal-trigger">
-        <button class='dropdown-button btn' data-activates='dropdown1' materialize="dropdown">Drop Me!</button>
+        <button class='dropdown-button btn' data-activates='dropdown1' materialize="dropdown" constrainWidth="false" belowOrigin="true">...</button>
         <ul id='dropdown1' class='dropdown-content'>
             <li>
-                <button class="waves-effect waves-light btn" (click)="deleteArticle()">Supprimer
-                </button>
+                <a (click)="deleteArticle()"><i class="material-icons left">delete_forever</i>Supprimer</a>
             </li>
         </ul>
     </div>
