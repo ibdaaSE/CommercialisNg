@@ -3,8 +3,9 @@ import { ArticleService } from "app/services/article.service";
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import { JQueryService } from "app/services/JQuery.service";
+import { Router } from '@angular/router';
 
-declare let Materialize:any;
+declare let Materialize: any;
 
 @Component({
   templateUrl: './stock.component.html',
@@ -22,7 +23,11 @@ export class StockComponent implements OnInit {
   articles: any[]
   selectedArticle: any
 
-  constructor(private articleService: ArticleService, private jQueryService: JQueryService) {
+  constructor(
+    private articleService: ArticleService,
+    private jQueryService: JQueryService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -92,9 +97,14 @@ export class StockComponent implements OnInit {
     this.jQueryService.openModal("article-details-dialog")
   }
 
-  deletedArticles(message:String){
-    Materialize.toast('I am a toast!', 4000)
+  deletedArticles(message: String) {
+    Materialize.toast(message, 4000)
     this.getArticles();
-    console.log(message);
   }
+
+  newArticle() {
+    this.router.navigate(['/stock/new']);
+  }
+
+
 }
