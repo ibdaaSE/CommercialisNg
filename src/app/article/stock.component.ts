@@ -4,6 +4,7 @@ import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import { JQueryService } from "app/services/JQuery.service";
 import { Router } from '@angular/router';
+import { IArticle } from 'app/shared/models';
 
 declare let Materialize: any;
 
@@ -20,7 +21,7 @@ export class StockComponent implements OnInit {
   pageLength: number
 
   articlesCount: number
-  articles: any[]
+  articles: IArticle[]
   selectedArticle: any
 
   constructor(

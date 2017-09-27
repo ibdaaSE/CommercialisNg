@@ -2,6 +2,7 @@ import { Component, OnInit, Input, SimpleChange, Output, EventEmitter } from '@a
 import { JQueryService } from "app/services/JQuery.service";
 import { ArticleService } from 'app/services/article.service';
 import { Observable } from 'rxjs/Observable';
+import { IArticle } from 'app/shared/models';
 
 @Component({
     selector: 'article',
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class ArticleComponent {
 
     @Output() deleteEvent = new EventEmitter();
-    @Input() article: any;
+    @Input() article: IArticle;
     constructor(private articleService: ArticleService, private jQuery:JQueryService) { }
 
     deleteArticle() {

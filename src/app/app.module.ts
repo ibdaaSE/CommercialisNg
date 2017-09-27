@@ -13,11 +13,12 @@ import { appRoutes } from "routes";
 import { ArticleService } from "app/services/article.service";
 import { ArticleDetailComponent } from "app/article/articleDetail.component";
 import { JQueryService } from "app/services/JQuery.service";
+import { NewArticleComponent } from 'app/article/newArticle.component';
 
 @NgModule({
   declarations: [
     AppComponent, StockComponent, ArticleComponent, ArticleDetailComponent,
-    ClientFournisseurComponent
+    ClientFournisseurComponent,NewArticleComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { IArticle } from 'app/shared/models';
 
 @Injectable()
 export class ArticleService {
@@ -10,7 +11,7 @@ export class ArticleService {
     constructor(private http : Http){
     }
 
-    getArticles(filter:String, pageIndex:number, filterAttribute:string, advancedFilter:string):Observable<any[]> {
+    getArticles(filter:String, pageIndex:number, filterAttribute:string, advancedFilter:string):Observable<IArticle[]> {
         console.log('/api/filteredArticles?filter=' + filter  + '&pageIndex=' + pageIndex
         + '&filterAttribute=' + filterAttribute + '&advancedFilter=' + advancedFilter);
         
@@ -19,7 +20,7 @@ export class ArticleService {
         .map((response: Response) =>  response.json());
     }
 
-    countArticles(filter:String, filterAttribute:string, advancedFilter:string):Observable<any[]> {
+    countArticles(filter:String, filterAttribute:string, advancedFilter:string):Observable<IArticle[]> {
         return this.http.get('/api/articles/count?filter=' + filter 
         + '&filterAttribute=' + filterAttribute + '&advancedFilter=' + advancedFilter)
         .map((response: Response) =>  response.json());
