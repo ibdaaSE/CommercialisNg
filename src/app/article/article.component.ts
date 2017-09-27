@@ -33,8 +33,4 @@ export class ArticleComponent {
         return Observable.throw(error.statusText);
     }
 
-    openDropdown(id:string){
-        this.jQuery.openDropdown(id);
-    } 
-
 }

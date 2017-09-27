@@ -1,5 +1,5 @@
 <div class="row valign-wrapper filters">
-	<a materialize="sideNav" data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
+	<a materialize data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
 		<i class="material-icons">apps</i></a>
 	<div class="col s12 m4 left-align">
 		<h5 class="left-align m12">Stock</h5>
@@ -25,27 +25,31 @@
 	 class="validate">
 </div>
 
-<div class="divider grey lighten-2"></div>
+<div class="divider grey lighten-4"></div>
 
 <div class="row grey lighten-5">
 	<div class="col left-menu center grey lighten-4">
-		<button class="btn-floating waves-effect waves-light green tooltipped" 
-		data-position="right" data-tooltip="Nouvel article" 
-		(click)="newArticle()">
+		<button class="btn-floating waves-effect waves-light green tooltipped" data-position="right" data-tooltip="Nouvel article"
+		 materialize="tooltip" (click)="newArticle()">
 			<i class="material-icons">add</i>
 		</button>
-		<button class="btn-floating waves-effect waves-dark white tooltipped" data-position="right" data-tooltip="Imprimer cette liste">
+		<button class="btn-floating waves-effect waves-dark white tooltipped" data-position="right" data-tooltip="Imprimer cette liste"
+		 materialize="tooltip">
 			<i class="material-icons grey-text">print</i>
 		</button>
 	</div>
 	<div class="col table-content">
 		<div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
 			<ul class="col tabs advanced-filters-tab" materialize="tabs">
-				<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles">Tous</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés">Utilisé</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('=a.inventaire', '1')" class="black-text tooltipped" data-tooltip="Les articles en inventaire">Inventaire</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock">En rupture</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés">Inutilisé</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles" materialize="tooltip">Tous</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés"
+					 materialize="tooltip">Utilisé</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('=a.inventaire', '1')" class="black-text tooltipped" data-tooltip="Les articles en inventaire"
+					 materialize="tooltip">Inventaire</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock"
+					 materialize="tooltip">En rupture</a></li>
+				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés"
+					 materialize="tooltip">Inutilisé</a></li>
 			</ul>
 			<div class="row pagination-container valign-wrapper right">
 				<div class="row right-align">
