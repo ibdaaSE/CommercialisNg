@@ -1,5 +1,5 @@
 export interface IArticle {
-    idArticle : number,
+    idArticle? : number,
     acommander?: number,
     categorie? : String,
     codeBarres? : String,

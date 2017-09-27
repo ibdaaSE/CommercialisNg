@@ -1,29 +1,50 @@
 <h1> NEW ARTICLE AREA </h1>
-<form class="col s12">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+<form class="col s12" [formGroup]="articleForm" (ngSubmit)="saveArticle(articleForm.value)   "  >
+    <input placeholder="designation" formControlName="designation" 
+    id="designation" type="text" class="validate">
+    <input placeholder="reference" formControlName="reference" 
+    id="reference" type="text" class="validate">
+    <input placeholder="nomtech" formControlName="nomtech" 
+    id="nomtech" type="text" class="validate">
+    <input placeholder="categorie" formControlName="categorie"
+    id="categorie" type="text" class="validate">
+    <input placeholder="famille" formControlName="famille"
+    id="famille" type="text" class="validate">  
+    <input placeholder="marque" formControlName="marque"
+    id="marque" type="text" class="validate">
+    <input placeholder="codeBarres" formControlName="codeBarres"
+    id="codeBarres" type="text" class="validate">    
+    <input placeholder="prixAchat" formControlName="prixAchat"
+    id="prixAchat" type="text" class="validate">
+    <input placeholder="prixPub" formControlName="prixPub"
+    id="prixPub" type="text" class="validate">
+    <input placeholder="prixRev" formControlName="prixRev"
+    id="prixRev" type="text" class="validate">
+    <input placeholder="prixSpec" formControlName="prixSpec"
+    id="prixSpec" type="text" class="validate">
+    <input placeholder="qteStock" formControlName="qteStock"
+    id="qteStock" type="text" class="validate">
+    <input placeholder="qteMin" formControlName="qteMin"
+    id="qteMin" type="text" class="validate">
+    <input placeholder="qteMax" formControlName="qteMax"
+    id="qteMax" type="text" class="validate">
+    <input placeholder="qteCarton" formControlName="qteCarton"
+    id="qteCarton" type="text" class="validate">
+    <input placeholder="unite" formControlName="unite"
+    id="unite" type="text" class="validate">
+    <input placeholder="tva" formControlName="tva"
+    id="tva" type="text" class="validate">
+    <input placeholder="utilise" formControlName="utilise"
+    id="utilise" type="text" class="validate">
+    <input placeholder="inventaire" formControlName="inventaire" 
+    id="inventaire" type="text" class="validate">
+    <input placeholder="acommander" formControlName="acommander"
+    id="acommander" type="text" class="validate">
 
     <button class="btn waves-effect waves-light" type="submit" name="action">Valider
             <i class="material-icons right">send</i>
           </button>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Retour
+          <button class="btn waves-effect waves-light" type="button" name="action" (click)="cancel()">Retour
                 <i class="material-icons right">send</i>
               </button>
 </form>
