@@ -13,12 +13,31 @@ declare let Materialize: any;
 export class EditArticleComponent implements OnInit {
 
     articleForm: FormGroup;
+    designation = new FormControl(); reference = new FormControl(); nomtech = new FormControl();
+    categorie = new FormControl(); famille = new FormControl(); marque = new FormControl();
+    codeBarres = new FormControl(); prixAchat = new FormControl(); prixPub = new FormControl();
+    prixRev = new FormControl(); prixSpec = new FormControl(); qteStock = new FormControl();
+    qteMin = new FormControl(); qteMax = new FormControl(); qteCarton = new FormControl();
+    unite = new FormControl(); tva = new FormControl(); utilise = new FormControl();
+    inventaire = new FormControl(); acommander = new FormControl();
     article: IArticle;
     constructor(private articleService: ArticleService,
         private router: Router, private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
+        
+        this.articleForm = new FormGroup({
+            designation: this.designation, reference: this.reference, nomtech: this.nomtech,
+            categorie: this.categorie, famille: this.famille, marque: this.marque,
+            codeBarres: this.codeBarres, prixAchat: this.prixAchat, prixPub: this.prixPub,
+            prixRev: this.prixRev, prixSpec: this.prixSpec, qteStock: this.qteStock,
+            qteMin: this.qteMin, qteMax: this.qteMax, qteCarton: this.qteCarton,
+            unite: this.unite, tva: this.tva, utilise: this.utilise,
+            inventaire: this.inventaire, acommander: this.acommander
+        })
+        console.log(+this.route.snapshot.params['id']);
+        
         this.articleService.getArticle(+this.route.snapshot.params['id']).subscribe(
             article => {
                 this.initArticleForm(article);
@@ -27,26 +46,19 @@ export class EditArticleComponent implements OnInit {
     }
 
     initArticleForm(article: IArticle) {
-        let designation = new FormControl(article.designation); let reference = new FormControl(article.reference);
-        let nomtech = new FormControl(article.nomtech); let categorie = new FormControl(article.categorie);
-        let famille = new FormControl(article.famille); let marque = new FormControl(article.marque);
-        let codeBarres = new FormControl(article.codeBarres); let prixAchat = new FormControl(article.prixachat);
-        let prixPub = new FormControl(article.prixpublic); let prixRev = new FormControl(article.prixrevendeur);
-        let prixSpec = new FormControl(article.prixspecial); let qteStock = new FormControl(article.qtestock);
-        let qteMin = new FormControl(article.qtemin); let qteMax = new FormControl(article.qtemax);
-        let qteCarton = new FormControl(article.qteCarton); let unite = new FormControl(article.unite);
-        let tva = new FormControl(article.tva); let utilise = new FormControl(article.utilise);
-        let inventaire = new FormControl(article.inventaire); let acommander = new FormControl(article.acommander);
 
-        this.articleForm = new FormGroup({
-            designation: designation, reference: reference, nomtech: nomtech,
-            categorie: categorie, famille: famille, marque: marque,
-            codeBarres: codeBarres, prixAchat: prixAchat, prixPub: prixPub,
-            prixRev: prixRev, prixSpec: prixSpec, qteStock: qteStock,
-            qteMin: qteMin, qteMax: qteMax, qteCarton: qteCarton,
-            unite: unite, tva: tva, utilise: utilise,
-            inventaire: inventaire, acommander: acommander
-        })
+        this.designation.setValue(article.designation);
+        this.reference.setValue(article.reference);
+        this.nomtech.setValue(article.nomtech); this.categorie.setValue(article.categorie);
+        this.famille.setValue(article.famille); this.marque.setValue(article.marque);
+        this.codeBarres.setValue(article.codeBarres); this.prixAchat.setValue(article.prixachat);
+        this.prixPub.setValue(article.prixpublic); this.prixRev.setValue(article.prixrevendeur);
+        this.prixSpec.setValue(article.prixspecial); this.qteStock.setValue(article.qtestock);
+        this.qteMin.setValue(article.qtemin); this.qteMax.setValue(article.qtemax);
+        this.qteCarton.setValue(article.qteCarton); this.unite.setValue(article.unite);
+        this.tva.setValue(article.tva); this.utilise.setValue(article.utilise);
+        this.inventaire.setValue(article.inventaire); this.acommander.setValue(article.acommander);
+        
     }
 
     saveArticle(formValues) {
