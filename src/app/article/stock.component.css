@@ -21,9 +21,8 @@
 }
 
 .advanced-filters-tab {
-	overflow-x: hidden !important;
-	padding-left: 40px;
-	width: 80%;
+	width: 100%;
+	padding-left: 55px;
 }
 
 .advanced-filters-tab button{

@@ -1,9 +1,9 @@
 <div class="row valign-wrapper filters">
-	<a materialize="['tooltip']" data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
+	<a materialize="tooltip" data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
 		<i class="material-icons">apps</i>
 	</a>
 	<div class="col s12 m4 left-align">
-		<h5 class="left-align m12">Stock</h5>
+		<h5 class="m12">Stock</h5>
 	</div>
 	<div class="col hide-on-small-only m8 valign-wrapper search-field-container">
 		<div class="search-field col m12">
@@ -31,13 +31,13 @@
 <div class="divider grey lighten-4"></div>
 
 <div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
-	<ul class="row valign-wrapper tabs advanced-filters-tab" materialize="tabs">
+	<div class="row m12 valign-wrapper advanced-filters-tab">
 		<button (click)="setAdvancedFilter('', '-1')" class="col active btn-flat" data-tooltip="Tous les articles" materialize="tooltip">Tous</button>
 		<button (click)="setAdvancedFilter('=a.utilise', '1')" data-tooltip="Les articles utilisés" class="col btn-flat" materialize="tooltip">Utilisé</button>
 		<button (click)="setAdvancedFilter('=a.inventaire', '1')" data-tooltip="Les articles en inventaire" class="col btn-flat" materialize="tooltip">Inventaire</button>
 		<button (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" data-tooltip="Les articles en rupture de stock" class="col btn-flat" materialize="tooltip">En rupture</button>
 		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les articles inutilisés" class="col btn-flat" materialize="tooltip">Inutilisé</button>
-	</ul>
+	</div>
 	<div class="row pagination-container valign-wrapper right">
 		<div class="row right-align">
 			<p class="right" *ngIf="articlesCount >= pageLength">
