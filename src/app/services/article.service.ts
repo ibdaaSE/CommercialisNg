@@ -27,7 +27,6 @@ export class ArticleService {
     }
 
     deleteArticle(id: number): Observable<any> {
-        console.log('/api/articles/' + id);
         return this.http.delete('/api/articles/' + id);
     }
 
@@ -35,6 +34,11 @@ export class ArticleService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this.http.post('/api/articles', article, options).subscribe();
+    }
+
+    getArticle(id : number): Observable<IArticle> {
+
+        return this.http.get('/api/articles/' + id).map((response: Response) => <IArticle>response.json());
     }
 
 }
