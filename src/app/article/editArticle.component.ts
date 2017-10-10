@@ -36,8 +36,7 @@ export class EditArticleComponent implements OnInit {
             unite: this.unite, tva: this.tva, utilise: this.utilise,
             inventaire: this.inventaire, acommander: this.acommander
         })
-        console.log(+this.route.snapshot.params['id']);
-        
+
         this.articleService.getArticle(+this.route.snapshot.params['id']).subscribe(
             article => {
                 this.initArticleForm(article);
@@ -63,7 +62,6 @@ export class EditArticleComponent implements OnInit {
 
     saveArticle(formValues) {
 
-        console.log(formValues.designation);
         let newArticle: IArticle;
         newArticle = {
             acommander: formValues.acommander,
