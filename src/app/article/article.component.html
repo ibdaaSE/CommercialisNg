@@ -6,11 +6,11 @@
         <p class="col m1 right-align">{{article.prixpublic |number : '1.2-2'}}</p>
     </div>
     <div class="col row-options hide-on-small-only modal-trigger valign-wrapper">
-        <button class='dropdown-button btn-flat' data-beloworigin="true" constrainWidth="false" data-activates='dropdown1' alignment="bottom"
+        <button class='dropdown-button btn-flat' data-beloworigin="true" constrainWidth="false" [attr.data-activates]="article.idArticle" alignment="bottom"
             materialize="dropdown">
             <i class="material-icons center">more_vert</i>
         </button>
-        <ul id='dropdown1' class='dropdown-content'>
+        <ul [attr.id]="article.idArticle" class='dropdown-content'>
             <li>
                 <a (click)="deleteArticle()"><i class="material-icons left">delete_forever</i>Supprimer</a>
             </li>

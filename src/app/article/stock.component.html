@@ -1,19 +1,22 @@
 <div class="row valign-wrapper filters">
-	<a materialize data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
-		<i class="material-icons">apps</i></a>
+	<a materialize="tooltip" data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
+		<i class="material-icons">apps</i>
+	</a>
 	<div class="col s12 m4 left-align">
-		<h5 class="left-align m12">Stock</h5>
+		<h5 class="m12">Stock</h5>
 	</div>
 	<div class="col hide-on-small-only m8 valign-wrapper search-field-container">
 		<div class="search-field col m12">
 			<input class="col m12 browser-default" #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher"
 			 type="text">
 		</div>
-		<button class="waves-effect waves-light btn z-depth-0"><i class="material-icons prefix">search</i></button>
+		<button class="waves-effect waves-light btn z-depth-0">
+			<i class="material-icons prefix">search</i>
+		</button>
 	</div>
 	<div class="right row hide-on-small-only user-container">
 		<button class="right btn-floating waves-effect waves-light blue">
-					<i class="material-icons">account_circle</i>
+			<i class="material-icons">account_circle</i>
 		</button>
 		<button class="right btn-floating waves-effect waves-dark z-depth-0 white">
 			<i class="material-icons grey-text">settings</i>
@@ -27,6 +30,34 @@
 
 <div class="divider grey lighten-4"></div>
 
+<div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
+	<div class="row m12 valign-wrapper advanced-filters-tab">
+		<button (click)="setAdvancedFilter('', '-1')" class="col active btn-flat" data-tooltip="Tous les articles" materialize="tooltip">Tous</button>
+		<button (click)="setAdvancedFilter('=a.utilise', '1')" data-tooltip="Les articles utilisés" class="col btn-flat" materialize="tooltip">Utilisé</button>
+		<button (click)="setAdvancedFilter('=a.inventaire', '1')" data-tooltip="Les articles en inventaire" class="col btn-flat" materialize="tooltip">Inventaire</button>
+		<button (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" data-tooltip="Les articles en rupture de stock" class="col btn-flat" materialize="tooltip">En rupture</button>
+		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les articles inutilisés" class="col btn-flat" materialize="tooltip">Inutilisé</button>
+	</div>
+	<div class="row pagination-container valign-wrapper right">
+		<div class="row right-align">
+			<p class="right" *ngIf="articlesCount >= pageLength">
+				<b>{{pageIndex +1}}-{{pageIndex + pageLength}}</b> sur
+				<b>{{articlesCount}}</b>
+			</p>
+			<p class="right" *ngIf="articlesCount != 0 && articlesCount < pageLength">
+				<b>{{pageIndex +1}}-{{pageIndex + articlesCount}}</b> sur
+				<b>{{articlesCount}}</b>
+			</p>
+		</div>
+		<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="col waves-effect waves-orange amber btn z-depth-0">
+			<i class="material-icons grey-text white-text">chevron_left</i>
+		</a>
+		<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="col waves-effect waves-orange amber btn z-depth-0">
+			<i class="material-icons grey-text white-text">chevron_right</i>
+		</a>
+	</div>
+</div>
+
 <div class="row grey lighten-5">
 	<div class="col left-menu center grey lighten-4">
 		<button class="btn-floating waves-effect waves-light green tooltipped" data-position="right" data-tooltip="Nouvel article"
@@ -37,42 +68,27 @@
 		 materialize="tooltip">
 			<i class="material-icons grey-text">print</i>
 		</button>
+		<button class="btn-floating waves-effect waves-dark white tooltipped" data-position="right" data-tooltip="Rafraîchir cette liste"
+		 materialize="tooltip" (click)="getArticles()">
+			<i class="material-icons grey-text">update</i>
+		</button>
 	</div>
 	<div class="col table-content">
-		<div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
-			<ul class="col tabs advanced-filters-tab" materialize="tabs">
-				<li class="tab"><a (click)="setAdvancedFilter('', '-1')" class="active black-text tooltipped" data-tooltip="Tous les articles" materialize="tooltip">Tous</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '1')" class="black-text tooltipped" data-tooltip="Les articles utilisés"
-					 materialize="tooltip">Utilisé</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('=a.inventaire', '1')" class="black-text tooltipped" data-tooltip="Les articles en inventaire"
-					 materialize="tooltip">Inventaire</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" class="black-text tooltipped" data-tooltip="Les articles en rupture de stock"
-					 materialize="tooltip">En rupture</a></li>
-				<li class="tab"><a (click)="setAdvancedFilter('=a.utilise', '0')" class="black-text tooltipped" data-tooltip="Les articles inutilisés"
-					 materialize="tooltip">Inutilisé</a></li>
-			</ul>
-			<div class="row pagination-container valign-wrapper right">
-				<div class="row right-align">
-					<p class="right" *ngIf="articlesCount >= pageLength"><b>{{pageIndex +1}}-{{pageIndex + pageLength}}</b> sur <b>{{articlesCount}}</b></p>
-					<p class="right" *ngIf="articlesCount != 0 && articlesCount < pageLength">
-						<b>{{pageIndex +1}}-{{pageIndex + articlesCount}}</b> sur <b>{{articlesCount}}</b>
-					</p>
-				</div>
-				<a [class.disabled]="!hasPreviewPage()" (click)="getPreviewPage()" class="col waves-effect waves-orange amber btn z-depth-0">
-				<i class="material-icons grey-text white-text">chevron_left</i>
-			    </a>
-				<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="col waves-effect waves-orange amber btn z-depth-0">
-				<i class="material-icons grey-text white-text">chevron_right</i>
-				</a>
-			</div>
-		</div>
 		<div class="divider grey lighten-2"></div>
 		<div class="row hide-on-small-only valign-wrapper left-align table-header">
 			<div class="edge-20">
-				<p class="col m3 left-align"><b>REFERENCE</b></p>
-				<p class="col m7 left-align"><b>DESIGNATION</b></p>
-				<p class="col m1 right-align"><b>QTE</b></p>
-				<p class="col m1 right-align"><b>PRIX</b></p>
+				<p class="col m3 left-align">
+					<b>REFERENCE</b>
+				</p>
+				<p class="col m7 left-align">
+					<b>DESIGNATION</b>
+				</p>
+				<p class="col m1 right-align">
+					<b>QTE</b>
+				</p>
+				<p class="col m1 right-align">
+					<b>PRIX</b>
+				</p>
 			</div>
 		</div>
 

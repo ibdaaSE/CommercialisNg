@@ -23,3 +23,7 @@
 .dropdown-content{
 	width: 180px !important;
 }
+
+.dropdown-content li a, .dropdown-content li a .material-icons{
+	color: #181818
+}

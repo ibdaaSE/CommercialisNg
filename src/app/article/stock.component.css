@@ -10,7 +10,7 @@
   #table-body {
 	overflow-y: scroll;
 	overflow-x: hidden;
-	height: calc(100% - 180px);
+	height: calc(100% - 173px);
 }
 }
 
@@ -21,7 +21,17 @@
 }
 
 .advanced-filters-tab {
-	overflow-x: hidden !important;
+	width: 100%;
+	padding-left: 55px;
+}
+
+.advanced-filters-tab button{
+	margin-right: 20px;
+}
+
+.advanced-filters-tab button:active, .advanced-filters-tab button:focus{
+	background: orange;
+	color: white;
 }
 
 .edge-20 {
@@ -144,4 +154,8 @@ td{
 	min-width: 210px;
 	max-width: 210px;
 	margin-right: 10px;
+
+	min-height: 48px !important;
+	max-height: 48px !important;
+	height: 48px;
 }
