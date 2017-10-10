@@ -36,6 +36,12 @@ export class ArticleService {
         return this.http.post('/api/articles', article, options).subscribe();
     }
 
+    editArticle(article: IArticle) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.put('/api/articles', article, options).subscribe();
+    }
+
     getArticle(id : number): Observable<IArticle> {
 
         return this.http.get('/api/articles/' + id).map((response: Response) => <IArticle>response.json());
