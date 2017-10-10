@@ -3,6 +3,7 @@ import { JQueryService } from "app/services/JQuery.service";
 import { ArticleService } from 'app/services/article.service';
 import { Observable } from 'rxjs/Observable';
 import { IArticle } from 'app/shared/models';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'article',
@@ -14,7 +15,9 @@ export class ArticleComponent {
 
     @Output() deleteEvent = new EventEmitter();
     @Input() article: IArticle;
-    constructor(private articleService: ArticleService, private jQuery:JQueryService) { }
+    constructor(private articleService: ArticleService,
+        private jQuery: JQueryService,
+        private router: Router) { }
 
     deleteArticle() {
         this.articleService.deleteArticle(this.article.idArticle).catch(this.handleError).
@@ -27,6 +30,10 @@ export class ArticleComponent {
                 this.deleteEvent.emit("success");
             });
 
+    }
+
+    editArticle() {
+        this.router.navigate(['/stock/edit',this.article.idArticle]);
     }
 
     private handleError(error: Response) {

@@ -14,11 +14,13 @@ import { ArticleService } from "app/services/article.service";
 import { ArticleDetailComponent } from "app/article/articleDetail.component";
 import { JQueryService } from "app/services/JQuery.service";
 import { NewArticleComponent } from 'app/article/newArticle.component';
+import { EditArticleComponent } from 'app/article/editArticle.component';
+import { ArticleResolver } from 'app/services/articleResolver.service';
 
 @NgModule({
   declarations: [
     AppComponent, StockComponent, ArticleComponent, ArticleDetailComponent,
-    ClientFournisseurComponent,NewArticleComponent
+    ClientFournisseurComponent, NewArticleComponent, EditArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { NewArticleComponent } from 'app/article/newArticle.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ArticleService,JQueryService],
+  providers: [ArticleService, JQueryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
