@@ -26,7 +26,7 @@ export class EditArticleComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        
+
         this.articleForm = new FormGroup({
             designation: this.designation, reference: this.reference, nomtech: this.nomtech,
             categorie: this.categorie, famille: this.famille, marque: this.marque,
@@ -57,13 +57,14 @@ export class EditArticleComponent implements OnInit {
         this.qteCarton.setValue(article.qteCarton); this.unite.setValue(article.unite);
         this.tva.setValue(article.tva); this.utilise.setValue(article.utilise);
         this.inventaire.setValue(article.inventaire); this.acommander.setValue(article.acommander);
-        
+
     }
 
     saveArticle(formValues) {
 
         let newArticle: IArticle;
         newArticle = {
+            idArticle: this.route.snapshot.params['id'],
             acommander: formValues.acommander,
             categorie: formValues.categorie,
             codeBarres: formValues.codeBarres,
@@ -89,12 +90,17 @@ export class EditArticleComponent implements OnInit {
             unite: formValues.unite,
             utilise: true,
         }
-        console.log(newArticle.designation);
 
-        this.articleService.saveArticle(newArticle);
-        Materialize.toast("success");
-        this.router.navigate(['/stock']);
-
+        this.articleService.editArticle(newArticle).subscribe((val) => {
+            this.router.navigate(['/stock']);
+            Materialize.toast("success");
+        },
+            (err) => {
+            },
+            () => {
+                
+            });
+        
     }
 
     cancel() {

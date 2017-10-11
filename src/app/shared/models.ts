@@ -1,10 +1,10 @@
 export interface IArticle {
-    idArticle? : number,
+    idArticle?: number,
     acommander?: number,
-    categorie? : String,
-    codeBarres? : String,
+    categorie?: String,
+    codeBarres?: String,
     depot?: String,
-    designation:  String,
+    designation: String,
     expirable: boolean,
     famille?: String,
     inventaire: boolean,
@@ -25,4 +25,11 @@ export interface IArticle {
     tva?: number,
     unite: String,
     utilise: boolean,
+}
+export interface ICF {
+    idCF?: number,
+    raisonSociale: String,
+    tel: String,
+    mail: String,
+    solde: number,
 }

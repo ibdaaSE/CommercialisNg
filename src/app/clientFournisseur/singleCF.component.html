@@ -1,0 +1,28 @@
+<div class="row valign-wrapper">
+    <div class="row-container col m12 hide-on-small-only modal-trigger valign-wrapper">
+        <p class="col m3 left-align">{{cf.raisonSociale}}</p>
+        <p class="col m6 left-align">{{cf.tel}}</p>
+        <p class="col m1 right-align">{{cf.mail}}</p>
+        <p class="col m1 right-align">{{cf.solde |number : '1.2-2'}}</p>
+    </div>
+    <div class="col row-options hide-on-small-only modal-trigger valign-wrapper">
+        <button class='dropdown-button btn-flat' data-beloworigin="true" constrainWidth="false" [attr.data-activates]="cf.idCF" alignment="bottom"
+            materialize="dropdown">
+            <i class="material-icons center">more_vert</i>
+        </button>
+        <ul [attr.id]="cf.idCF" class='dropdown-content'>
+            <li>
+                <a (click)="deleteCF()"><i class="material-icons left">delete_forever</i>Supprimer</a>
+            </li>
+            <li>
+                <a (click)="editCF()"><i class="material-icons left">edit</i>Modifier</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row hide-on-med-and-up">
+    <p class="col s12 left-align">{{cf.raisonSociale}} : {{cf.tel}}<br>
+        <b>QTE</b> : {{cf.mail}<br>
+        <b>PRIX</b> : {{cf.solde |number : '1.2-2'}}</p>
+</div>

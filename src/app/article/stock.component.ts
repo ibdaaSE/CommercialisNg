@@ -22,7 +22,7 @@ export class StockComponent implements OnInit {
 
   articlesCount: number
   articles: IArticle[]
-  selectedArticle: any
+  selectedArticle: IArticle
 
   constructor(
     private articleService: ArticleService,
@@ -71,8 +71,8 @@ export class StockComponent implements OnInit {
     this.getArticles();
   }
 
-  getPreviewPage() {
-    if (!this.hasPreviewPage()) return;
+  getPreviousPage() {
+    if (!this.hasPreviousPage()) return;
     this.pageIndex = (this.pageIndex - this.pageLength);
     this.getArticles();
   }
@@ -81,7 +81,7 @@ export class StockComponent implements OnInit {
     return (this.articlesCount >= (this.pageIndex + this.pageLength))
   }
 
-  hasPreviewPage() {
+  hasPreviousPage() {
     return (this.pageIndex > 0)
   }
 

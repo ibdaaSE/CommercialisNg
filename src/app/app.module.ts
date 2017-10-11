@@ -16,11 +16,15 @@ import { JQueryService } from "app/services/JQuery.service";
 import { NewArticleComponent } from 'app/article/newArticle.component';
 import { EditArticleComponent } from 'app/article/editArticle.component';
 import { ArticleResolver } from 'app/services/articleResolver.service';
+import { CfService } from 'app/services/cf.service';
+import { SingleClientFournisseurComponent } from 'app/clientFournisseur/singleCF.component';
 
 @NgModule({
   declarations: [
-    AppComponent, StockComponent, ArticleComponent, ArticleDetailComponent,
-    ClientFournisseurComponent, NewArticleComponent, EditArticleComponent
+    AppComponent,
+    StockComponent, ArticleComponent, ArticleDetailComponent,
+    NewArticleComponent, EditArticleComponent,
+    ClientFournisseurComponent, SingleClientFournisseurComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import { ArticleResolver } from 'app/services/articleResolver.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ArticleService, JQueryService],
+  providers: [ArticleService, CfService, JQueryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

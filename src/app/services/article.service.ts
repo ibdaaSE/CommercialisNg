@@ -30,20 +30,19 @@ export class ArticleService {
         return this.http.delete('/api/articles/' + id);
     }
 
-    saveArticle(article: IArticle) {
+    saveArticle(article: IArticle): Observable<IArticle> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post('/api/articles', article, options).subscribe();
+        return this.http.post('/api/articles', article, options).map((response: Response) => <IArticle>response.json());;
     }
 
-    editArticle(article: IArticle) {
+    editArticle(article: IArticle): Observable<IArticle> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.put('/api/articles', article, options).subscribe();
+        return this.http.put('/api/articles/' + article.idArticle, article, options).map((response: Response) => <IArticle>response.json());
     }
 
-    getArticle(id : number): Observable<IArticle> {
-
+    getArticle(id: number): Observable<IArticle> {
         return this.http.get('/api/articles/' + id).map((response: Response) => <IArticle>response.json());
     }
 

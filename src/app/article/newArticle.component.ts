@@ -68,9 +68,16 @@ export class NewArticleComponent implements OnInit {
         }
         console.log(newArticle.designation);
 
-        this.articleService.saveArticle(newArticle);
-        Materialize.toast("success");
-        this.router.navigate(['/stock']);
+        this.articleService.saveArticle(newArticle).subscribe((val) => {
+            this.router.navigate(['/stock']);
+            Materialize.toast("success");
+        },
+            (err) => {
+            },
+            () => {
+
+            });
+
 
     }
 
