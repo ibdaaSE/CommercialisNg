@@ -10,7 +10,7 @@ export interface IArticle {
     inventaire: boolean,
     marque?: String,
     nomtech?: String,
-    photo?: null,
+    photo?: Blob,
     pmp?: number,
     prixachat?: number,
     prixpublic?: number,
@@ -27,9 +27,19 @@ export interface IArticle {
     utilise: boolean,
 }
 export interface ICF {
-    idCF?: number,
-    raisonSociale: String,
-    tel: String,
-    mail: String,
+    idClientFournisseur?: number,
+    adress?: String,
+    articleimposition?: String,
+    bloque?: boolean,
+    categorie?: String,
+    email?: String,
+    fax?: String,
+    idfiscale?: String,
+    nom?: String,
+    photo?: Blob,
+    raisonsocial: String,
+    registrecommerce?: String,
+    remarque?: String,
     solde: number,
+    telephone: String
 }
