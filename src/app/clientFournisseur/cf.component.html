@@ -10,7 +10,7 @@
 			<input class="col m12 browser-default" #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher"
 			 type="text">
 		</div>
-		<button class="waves-effect waves-light btn red darken-2 z-depth-0">
+		<button class="waves-effect waves-light btn red darken-2 z-depth-0" (click)="setFilter(searchField.value)">
 			<i class="material-icons prefix">search</i>
 		</button>
 	</div>
@@ -33,13 +33,13 @@
 <div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
 	<div class="row m12 valign-wrapper advanced-filters-tab">
 		<button (click)="setAdvancedFilter('', '-1')" class="col active btn-flat" data-tooltip="Tous les clients et fournisseurs" materialize="tooltip">Tous</button>
-		<button (click)="setAdvancedFilter('=a.utilise', '1')" data-tooltip="Tous les clients" class="col btn-flat" materialize="tooltip">Clients</button>
-		<button (click)="setAdvancedFilter('=a.inventaire', '1')" data-tooltip="Tous les fournisseurs" class="col btn-flat"
+		<button (click)="setAdvancedFilter('c.categorie', 'Client')" data-tooltip="Tous les clients" class="col btn-flat" materialize="tooltip">Clients</button>
+		<button (click)="setAdvancedFilter('c.categorie', 'Fournisseur')" data-tooltip="Tous les fournisseurs" class="col btn-flat"
 		 materialize="tooltip">Fournisseurs</button>
-		<button (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" data-tooltip="Les clients|fournisseurs bloqués" class="col btn-flat"
+		<button (click)="setAdvancedFilter('=c.bloque', '1')" data-tooltip="Les clients|fournisseurs bloqués" class="col btn-flat"
 		 materialize="tooltip">Bloqué</button>
-		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les clients|fournisseurs avec un crédit" class="col btn-flat" materialize="tooltip">Créditeur</button>
-		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les clients|fournisseurs qui vous doit un crédit" class="col btn-flat" materialize="tooltip">Débiteur</button>
+		<button (click)="setAdvancedFilter('>=c.solde', '0')" data-tooltip="Les clients|fournisseurs avec un crédit" class="col btn-flat" materialize="tooltip">Créditeur</button>
+		<button (click)="setAdvancedFilter('<c.solde', '0')" data-tooltip="Les clients|fournisseurs qui vous doit un crédit" class="col btn-flat" materialize="tooltip">Débiteur</button>
 	</div>
 	<div class="row pagination-container valign-wrapper right">
 		<div class="row right-align">
