@@ -21,7 +21,7 @@ export class SingleClientFournisseurComponent {
         private router: Router) { }
 
     deleteCF() {
-        this.cfService.deleteCF(this.cf.idCF).catch(this.handleError).
+        this.cfService.deleteCF(this.cf.idClientFournisseur).catch(this.handleError).
             subscribe((val) => {
             },
             (err) => {
@@ -34,7 +34,7 @@ export class SingleClientFournisseurComponent {
     }
 
     editCF() {
-        this.router.navigate(['/stock/edit', this.cf.idCF]);
+        this.router.navigate(['/clientFournisseur/edit', this.cf.idClientFournisseur]);
     }
 
     private handleError(error: Response) {

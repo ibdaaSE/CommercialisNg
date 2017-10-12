@@ -9,6 +9,8 @@ export const appRoutes: Routes = [
     { path: 'stock/new', component: NewArticleComponent },
     { path: 'stock/edit/:id', component: EditArticleComponent},
     { path: 'stock', component: StockComponent },
+    { path: 'clientFournisseur/new', component: NewArticleComponent },
+    { path: 'clientFournisseur/edit/:id', component: EditArticleComponent},
     { path: 'clientFournisseur', component: ClientFournisseurComponent },
     { path: '', redirectTo: '/stock', pathMatch: 'full' }
 
