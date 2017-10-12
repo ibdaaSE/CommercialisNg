@@ -1,16 +1,16 @@
 <div class="row valign-wrapper">
     <div class="row-container col m12 hide-on-small-only modal-trigger valign-wrapper">
-        <p class="col m3 left-align">{{cf.raisonSociale}}</p>
-        <p class="col m6 left-align">{{cf.tel}}</p>
-        <p class="col m1 right-align">{{cf.mail}}</p>
-        <p class="col m1 right-align">{{cf.solde |number : '1.2-2'}}</p>
+        <p class="col m6 left-align">{{cf.raisonsocial}}</p>
+        <p class="col m2 left-align">{{cf.telephone}}</p>
+        <p class="col m2 left-align">{{cf.email}}</p>
+        <p class="col m2 right-align">{{cf.solde |number : '1.2-2'}}</p>
     </div>
     <div class="col row-options hide-on-small-only modal-trigger valign-wrapper">
-        <button class='dropdown-button btn-flat' data-beloworigin="true" constrainWidth="false" [attr.data-activates]="cf.idCF" alignment="bottom"
+        <button class='dropdown-button btn-flat' data-beloworigin="true" constrainWidth="false" [attr.data-activates]="cf.idClientFournisseur" alignment="bottom"
             materialize="dropdown">
             <i class="material-icons center">more_vert</i>
         </button>
-        <ul [attr.id]="cf.idCF" class='dropdown-content'>
+        <ul [attr.id]="cf.idClientFournisseur" class='dropdown-content'>
             <li>
                 <a (click)="deleteCF()"><i class="material-icons left">delete_forever</i>Supprimer</a>
             </li>

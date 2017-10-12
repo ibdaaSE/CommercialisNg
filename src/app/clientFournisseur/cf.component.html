@@ -10,7 +10,7 @@
 			<input class="col m12 browser-default" #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher"
 			 type="text">
 		</div>
-		<button class="waves-effect waves-light btn z-depth-0">
+		<button class="waves-effect waves-light btn red darken-2 z-depth-0">
 			<i class="material-icons prefix">search</i>
 		</button>
 	</div>
@@ -32,29 +32,30 @@
 
 <div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
 	<div class="row m12 valign-wrapper advanced-filters-tab">
-		<button (click)="setAdvancedFilter('', '-1')" class="col active btn-flat" data-tooltip="Tous les articles" materialize="tooltip">Tous</button>
-		<button (click)="setAdvancedFilter('=a.utilise', '1')" data-tooltip="Les articles utilisés" class="col btn-flat" materialize="tooltip">Utilisé</button>
-		<button (click)="setAdvancedFilter('=a.inventaire', '1')" data-tooltip="Les articles en inventaire" class="col btn-flat"
-		 materialize="tooltip">Inventaire</button>
-		<button (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" data-tooltip="Les articles en rupture de stock" class="col btn-flat"
-		 materialize="tooltip">En rupture</button>
-		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les articles inutilisés" class="col btn-flat" materialize="tooltip">Inutilisé</button>
+		<button (click)="setAdvancedFilter('', '-1')" class="col active btn-flat" data-tooltip="Tous les clients et fournisseurs" materialize="tooltip">Tous</button>
+		<button (click)="setAdvancedFilter('=a.utilise', '1')" data-tooltip="Tous les clients" class="col btn-flat" materialize="tooltip">Clients</button>
+		<button (click)="setAdvancedFilter('=a.inventaire', '1')" data-tooltip="Tous les fournisseurs" class="col btn-flat"
+		 materialize="tooltip">Fournisseurs</button>
+		<button (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" data-tooltip="Les clients|fournisseurs bloqués" class="col btn-flat"
+		 materialize="tooltip">Bloqué</button>
+		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les clients|fournisseurs avec un crédit" class="col btn-flat" materialize="tooltip">Créditeur</button>
+		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les clients|fournisseurs qui vous doit un crédit" class="col btn-flat" materialize="tooltip">Débiteur</button>
 	</div>
 	<div class="row pagination-container valign-wrapper right">
 		<div class="row right-align">
-			<p class="right" *ngIf="articlesCount >= pageLength">
+			<p class="right" *ngIf="cfsCount >= pageLength">
 				<b>{{pageIndex +1}}-{{pageIndex + pageLength}}</b> sur
 				<b>{{cfsCount}}</b>
 			</p>
-			<p class="right" *ngIf="articlesCount != 0 && articlesCount < pageLength">
+			<p class="right" *ngIf="cfsCount != 0 && cfsCount < pageLength">
 				<b>{{pageIndex +1}}-{{pageIndex + cfsCount}}</b> sur
 				<b>{{cfsCount}}</b>
 			</p>
 		</div>
-		<a [class.disabled]="!hasPreviousPage()" (click)="getPreviousPage()" class="col waves-effect waves-orange amber btn z-depth-0">
+		<a [class.disabled]="!hasPreviousPage()" (click)="getPreviousPage()" class="col waves-effect waves-orange red darken-2 btn z-depth-0">
 			<i class="material-icons grey-text white-text">chevron_left</i>
 		</a>
-		<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="col waves-effect waves-orange amber btn z-depth-0">
+		<a [class.disabled]="!hasNextPage()" (click)="getNextPage()" class="col waves-effect waves-orange red darken-2 btn z-depth-0">
 			<i class="material-icons grey-text white-text">chevron_right</i>
 		</a>
 	</div>
@@ -79,16 +80,16 @@
 		<div class="divider grey lighten-2"></div>
 		<div class="row hide-on-small-only valign-wrapper left-align table-header">
 			<div class="edge-20">
-				<p class="col m3 left-align">
+				<p class="col m6 left-align">
 					<b>Raison Sociale</b>
 				</p>
-				<p class="col m7 left-align">
+				<p class="col m2 left-align">
 					<b>N°tel</b>
 				</p>
-				<p class="col m1 right-align">
+				<p class="col m2 left-align">
 					<b>E-Mail</b>
 				</p>
-				<p class="col m1 right-align">
+				<p class="col m2 right-align">
 					<b>Solde</b>
 				</p>
 			</div>
@@ -101,7 +102,7 @@
 				<tbody *ngFor="let cf of cfs">
 					<tr>
 						<td>
-							<singleCF-component [cf]="cf" ></singleCF-component>
+							<singleCF-component [cf]="cf"></singleCF-component>
 						</td>
 					</tr>
 				</tbody>

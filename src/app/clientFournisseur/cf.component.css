@@ -30,7 +30,7 @@
   }
   
   .advanced-filters-tab button:active, .advanced-filters-tab button:focus{
-	  background: rgb(184, 50, 50);
+	  background: #d32f2f;
 	  color: white;
   }
   
