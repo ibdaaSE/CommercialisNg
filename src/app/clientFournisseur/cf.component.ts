@@ -102,7 +102,7 @@ export class ClientFournisseurComponent implements OnInit {
   }
 
   newCF() {
-    this.router.navigate(['/stock/new']);
+    this.router.navigate(['/clientFournisseur/new']);
   }
 
 }
