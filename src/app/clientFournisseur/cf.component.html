@@ -102,7 +102,7 @@
 				<tbody *ngFor="let cf of cfs">
 					<tr>
 						<td>
-							<singleCF-component [cf]="cf"></singleCF-component>
+							<singleCF-component [cf]="cf" (deleteEvent)="deletedCFs($event)"></singleCF-component>
 						</td>
 					</tr>
 				</tbody>

@@ -1,5 +1,4 @@
-import { Component, Output, Input } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { ICF } from 'app/shared/models';
 import { CfService } from 'app/services/cf.service';
 import { JQueryService } from 'app/services/JQuery.service';
@@ -12,10 +11,10 @@ import { Observable } from 'rxjs/Observable';
     styleUrls: ['./singleCF.component.css']
 })
 export class SingleClientFournisseurComponent {
-    
+
     @Output() deleteEvent = new EventEmitter();
     @Input() cf: ICF;
-    
+
     constructor(private cfService: CfService,
         private jQuery: JQueryService,
         private router: Router) { }

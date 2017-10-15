@@ -18,13 +18,16 @@ import { EditArticleComponent } from 'app/article/editArticle.component';
 import { ArticleResolver } from 'app/services/articleResolver.service';
 import { CfService } from 'app/services/cf.service';
 import { SingleClientFournisseurComponent } from 'app/clientFournisseur/singleCF.component';
+import { NewCFComponent } from 'app/clientFournisseur/newCF.component';
+import { EditCFComponent } from 'app/clientFournisseur/editCF.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StockComponent, ArticleComponent, ArticleDetailComponent,
     NewArticleComponent, EditArticleComponent,
-    ClientFournisseurComponent, SingleClientFournisseurComponent
+    ClientFournisseurComponent, SingleClientFournisseurComponent,
+    NewCFComponent,EditCFComponent,
   ],
   imports: [
     BrowserModule,
