@@ -1,0 +1,37 @@
+<h1> NEW CF AREA </h1>
+<form class="col s12" [formGroup]="cfForm" (ngSubmit)="saveCF(cfForm.value)   "  >
+    <input placeholder="adress" formControlName="adress" 
+    id="adress" type="text" class="validate">
+    <input placeholder="articleimposition" formControlName="articleimposition" 
+    id="articleimposition" type="text" class="validate">
+    <input placeholder="bloque" formControlName="bloque" 
+    id="bloque" type="text" class="validate">
+    <input placeholder="categorie" formControlName="categorie"
+    id="categorie" type="text" class="validate">
+    <input placeholder="email" formControlName="email"
+    id="email" type="text" class="validate">  
+    <input placeholder="fax" formControlName="fax"
+    id="fax" type="text" class="validate">
+    <input placeholder="idfiscale" formControlName="idfiscale"
+    id="idfiscale" type="text" class="validate">    
+    <input placeholder="nom" formControlName="nom"
+    id="nom" type="text" class="validate">
+    <input placeholder="raisonsocial" formControlName="raisonsocial"
+    id="raisonsocial" type="text" class="validate">
+    <input placeholder="registrecommerce" formControlName="registrecommerce"
+    id="registrecommerce" type="text" class="validate">
+    <input placeholder="remarque" formControlName="remarque"
+    id="remarque" type="text" class="validate">
+    <input placeholder="solde" formControlName="solde"
+    id="solde" type="text" class="validate">
+    <input placeholder="telephone" formControlName="telephone"
+    id="telephone" type="text" class="validate">
+    
+
+    <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+            <i class="material-icons right">send</i>
+          </button>
+          <button class="btn waves-effect waves-light" type="button" name="action" (click)="cancel()">Retour
+                <i class="material-icons right">send</i>
+              </button>
+</form>

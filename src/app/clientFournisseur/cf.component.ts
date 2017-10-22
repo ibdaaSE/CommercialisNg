@@ -90,13 +90,13 @@ export class ClientFournisseurComponent implements OnInit {
     });
   }
 
-  setSelectedArticle(selectedCF: any) {
+  setSelectedCF(selectedCF: ICF) {
     this.selectedCF = selectedCF
     if (this.selectedCF === null) return;
     this.jQueryService.openModal("cf-details-dialog")
   }
 
-  deletedArticles(message: String) {
+  deletedCFs(message: String) {
     Materialize.toast(message, 4000)
     this.getCFs();
   }
