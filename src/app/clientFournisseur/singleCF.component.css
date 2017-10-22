@@ -12,13 +12,17 @@
 }
 
 .row-container:hover {
-   background-color: white;
+   background-color: rgba(255, 255, 255, 0.404);
    font-weight: bold;
 }
 
-.row-options .btn-flat{
+.row-options, .row-options .btn-flat{
 	padding: 0px;
 }
+
+.row-options .btn-flat .material-icons{
+	font-size: 24px;
+} 
 
 .dropdown-content{
 	width: 180px !important;
@@ -26,4 +30,8 @@
 
 .dropdown-content li a, .dropdown-content li a .material-icons{
 	color: #181818
+}
+
+.dropdown-content li a:hover, .dropdown-content li a .material-icons:hover{
+	background: #d32f2f
 }

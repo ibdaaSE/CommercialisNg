@@ -1,14 +1,14 @@
 <div class="row valign-wrapper">
     <div class="row-container col m12 hide-on-small-only modal-trigger valign-wrapper">
-        <p class="col m3 left-align">{{article.reference}}</p>
+        <p class="col m2 left-align">{{article.reference}}</p>
         <p class="col m6 left-align">{{article.designation}}</p>
-        <p class="col m1 right-align">{{article.qtestock | number : '1.2-2'}}</p>
-        <p class="col m1 right-align">{{article.prixpublic |number : '1.2-2'}}</p>
+        <p class="col m2 right-align">{{article.qtestock | number : '1.2-2'}}</p>
+        <p class="col m2 right-align">{{article.prixpublic |number : '1.2-2'}}</p>
     </div>
     <div class="col row-options hide-on-small-only modal-trigger valign-wrapper">
         <button class='dropdown-button btn-flat' data-beloworigin="true" constrainWidth="false" [attr.data-activates]="article.idArticle" alignment="bottom"
             materialize="dropdown">
-            <i class="material-icons center">more_vert</i>
+            <i class="material-icons center white-text">more_vert</i>
         </button>
         <ul [attr.id]="article.idArticle" class='dropdown-content'>
             <li>

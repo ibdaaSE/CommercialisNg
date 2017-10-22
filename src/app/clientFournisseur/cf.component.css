@@ -13,6 +13,18 @@
 	  height: calc(100% - 173px);
   }
   }
+
+  #module-button{
+	min-width: 40px;
+	max-width: 40px;
+	min-height: 40px;
+	max-height: 40px;
+	margin-left: 10px;
+}
+
+#module-button .material-icons{
+	font-size: 24px;
+}
   
   .advanced-filters-container{
 	  min-height: 50px !important;

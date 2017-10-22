@@ -1,7 +1,7 @@
 <div class="row valign-wrapper filters">
-	<a materialize="tooltip" data-activates="slide-out" class="button-collapse tooltipped" data-tooltip="Modules">
-		<i class="material-icons">apps</i>
-	</a>
+	<button id="module-button" materialize="sideNav" data-activates="slide-out" class="button-collapse btn-floating waves-effect waves-dark z-depth-0 amber">
+		<i class="material-icons white-text">apps</i>
+	</button>
 	<div class="col s12 m4 left-align">
 		<h5 class="m12">Stock</h5>
 	</div>
@@ -10,7 +10,7 @@
 			<input class="col m12 browser-default" #searchField (keyup.enter)="setFilter(searchField.value)" id="icon_prefix" placeholder="Rechercher"
 			 type="text">
 		</div>
-		<button class="waves-effect waves-light btn z-depth-0" (click)="setFilter(searchField.value)">
+		<button class="waves-effect waves-light btn z-depth-0 amber" (click)="setFilter(searchField.value)">
 			<i class="material-icons prefix">search</i>
 		</button>
 	</div>
@@ -18,7 +18,7 @@
 		<button class="right btn-floating waves-effect waves-light blue">
 			<i class="material-icons">account_circle</i>
 		</button>
-		<button class="right btn-floating waves-effect waves-dark z-depth-0 white">
+		<button class="right btn-floating waves-effect z-depth-0 transparent">
 			<i class="material-icons grey-text">settings</i>
 		</button>
 	</div>
@@ -28,24 +28,43 @@
 	 class="validate">
 </div>
 
-<div class="divider grey lighten-4"></div>
-
-<div class="advanced-filters-container row valign-wrapper hide-on-small-only m12 white">
-	<div class="row m12 valign-wrapper advanced-filters-tab">
+<div class="advanced-filters-container row valign-wrapper hide-on-small-only m12">
+	<div class="buttons-container row m2 left-align valign-wrapper transparent">
+		<button class="btn-floating waves-effect waves-light green tooltipped" data-position="right" data-tooltip="Nouvel article"
+		 materialize="tooltip" (click)="newArticle()">
+			<i class="material-icons">add</i>
+		</button>
+		<button class="btn-floating waves-effect waves-dark white tooltipped" data-tooltip="Imprimer cette liste" materialize="tooltip">
+			<i class="material-icons grey-text">print</i>
+		</button>
+		<button class="btn-floating waves-effect waves-dark white tooltipped" data-tooltip="Rafraîchir cette liste" materialize="tooltip"
+		 (click)="getArticles()">
+			<i class="material-icons grey-text">update</i>
+		</button>
+	</div>
+	<div class="row m10 valign-wrapper advanced-filters-tab">
 		<button (click)="setAdvancedFilter('', '-1')" class="col active btn-flat" data-tooltip="Tous les articles" materialize="tooltip">Tous</button>
-		<button (click)="setAdvancedFilter('=a.utilise', '1')" data-tooltip="Les articles utilisés" class="col btn-flat" materialize="tooltip">Utilisé</button>
-		<button (click)="setAdvancedFilter('=a.inventaire', '1')" data-tooltip="Les articles en inventaire" class="col btn-flat" materialize="tooltip">Inventaire</button>
-		<button (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" data-tooltip="Les articles en rupture de stock" class="col btn-flat" materialize="tooltip">En rupture</button>
-		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les articles inutilisés" class="col btn-flat" materialize="tooltip">Inutilisé</button>
+		<button (click)="setAdvancedFilter('=a.utilise', '1')" data-tooltip="Les articles utilisés" class="col btn-flat"
+		 materialize="tooltip">Utilisé</button>
+		<button (click)="setAdvancedFilter('=a.inventaire', '1')" data-tooltip="Les articles en inventaire" class="col btn-flat"
+		 materialize="tooltip">Inventaire</button>
+		<button (click)="setAdvancedFilter('<a.qtestock', 'a.qtemin')" data-tooltip="Les articles en rupture de stock" class="col btn-flat"
+		 materialize="tooltip">En rupture</button>
+		<button (click)="setAdvancedFilter('=a.utilise', '0')" data-tooltip="Les articles inutilisés" class="col btn-flat"
+		 materialize="tooltip">Inutilisé</button>
 	</div>
 	<div class="row pagination-container valign-wrapper right">
 		<div class="row right-align">
-			<p class="right" *ngIf="articlesCount >= pageLength">
+			<p class="right" *ngIf="articlesCount >= pageLength && pageIndex + pageLength <= articlesCount">
 				<b>{{pageIndex +1}}-{{pageIndex + pageLength}}</b> sur
 				<b>{{articlesCount}}</b>
 			</p>
 			<p class="right" *ngIf="articlesCount != 0 && articlesCount < pageLength">
 				<b>{{pageIndex +1}}-{{pageIndex + articlesCount}}</b> sur
+				<b>{{articlesCount}}</b>
+			</p>
+			<p class="right" *ngIf="pageIndex + pageLength > articlesCount">
+				<b>{{pageIndex +1}}-{{articlesCount}}</b> sur
 				<b>{{articlesCount}}</b>
 			</p>
 		</div>
@@ -58,8 +77,8 @@
 	</div>
 </div>
 
-<div class="row grey lighten-5">
-	<div class="col left-menu center grey lighten-4">
+<div class="row">
+	<!--<div class="col left-menu center transparent">
 		<button class="btn-floating waves-effect waves-light green tooltipped" data-position="right" data-tooltip="Nouvel article"
 		 materialize="tooltip" (click)="newArticle()">
 			<i class="material-icons">add</i>
@@ -72,8 +91,8 @@
 		 materialize="tooltip" (click)="getArticles()">
 			<i class="material-icons grey-text">update</i>
 		</button>
-	</div>
-	<div class="col table-content">
+	</div>-->
+	<div class="col m12 table-content">
 		<div class="divider grey lighten-2"></div>
 		<div class="row hide-on-small-only valign-wrapper left-align table-header">
 			<div class="edge-20">
@@ -95,7 +114,7 @@
 		<div class="divider grey lighten-2"></div>
 
 		<div id="table-body">
-			<table class="bordered">
+			<table class="">
 				<tbody *ngFor="let article of articles">
 					<tr>
 						<td>

@@ -39,7 +39,7 @@ export class CfService {
     editCF(cf: ICF): Observable<ICF> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.put('/api/CFs/' + cf.idCF, cf, options).map((response: Response) => <ICF>response.json());
+        return this.http.put('/api/CFs/' + cf.idClientFournisseur, cf, options).map((response: Response) => <ICF>response.json());
     }
 
     getCF(id: number): Observable<ICF> {
